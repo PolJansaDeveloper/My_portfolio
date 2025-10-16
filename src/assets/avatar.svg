@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<rect width="100%" height="100%" fill="#071018"/>
+<g fill="#2dd4bf" font-family="sans-serif">
+  <circle cx="400" cy="260" r="120" fill="#062227"/>
+  <rect x="200" y="420" width="400" height="280" rx="24" fill="#062227"/>
+  <text x="50%" y="760" text-anchor="middle" fill="#9aa6b2" font-size="28">Pol Jansa Sierra</text>
+</g>
+</svg>

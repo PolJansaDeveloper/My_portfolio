@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom */
+html,body,#root{height:100%}
+.app-shell{height:100vh;display:flex;overflow:hidden}
+.sidebar-fixed{width:280px;flex-shrink:0;border-right:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:28px}
+.content-area{flex:1;position:relative;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);overflow:hidden}
+.view-track{height:100%;display:flex;flex-direction:column;transition:transform 0.8s cubic-bezier(.2,.9,.2,1)}
+.section-full{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px}
+.logo-circle{width:96px;height:96px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#083536,#0b8a6b);font-weight:800;color:#071018}
+.btn-accent{background:linear-gradient(90deg,#13c6a7,#06b6d4);color:#04201b;padding:10px 14px;border-radius:10px;font-weight:700}
+.small-muted{color:rgba(255,255,255,0.55)}
+/* responsive */
+@media (max-width:900px){
+  .sidebar-fixed{position:relative;width:100%;display:flex;flex-direction:row;gap:12px;align-items:center;padding:12px}
+  .app-shell{flex-direction:column}
+  .content-area{height:calc(100vh - 96px)}
+  .view-track{flex-direction:column}
+}
