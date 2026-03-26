@@ -47,14 +47,35 @@ export const translations = {
     },
     projects: {
       title: 'Proyectos',
+      subtitle:
+        'Una selección de productos Android y proyectos móviles que he construido o estoy desarrollando actualmente.',
       categories: {
         all: 'Todos',
         android: 'Android',
-        ios: 'iOS',
-        flutter: 'Flutter'
+        multiplatform: 'Multiplataforma'
+      },
+      platforms: {
+        android: 'Android',
+        multiplatform: 'Multiplataforma'
+      },
+      statuses: {
+        published: 'Publicado',
+        inDevelopment: 'En desarrollo',
+        private: 'Privado'
+      },
+      cta: {
+        viewOnGooglePlay: 'Ver en Google Play',
+        comingSoon: 'Próximamente',
+        privateProject: 'Proyecto privado'
       },
       empty: 'No hay proyectos en esta categoría todavía.',
       items: {
+        quickEscapeDesc:
+          'App Android que genera excusas ingeniosas para cancelar planes en modo serio o absurdo. Construida con Kotlin y Jetpack Compose, enfocada en UI limpia, engagement y publicación en Play Store.',
+        trainFlowDesc:
+          'App de seguimiento de entrenamientos enfocada en planificación, ejecución de sesiones e historial. Construida con Kotlin, Jetpack Compose y arquitectura escalable con fuerte foco en UI premium y experiencia de usuario.',
+        mediterraneanMarketDesc:
+          'Proyecto Android desarrollado como aplicación privada real. El código fuente no es público porque contiene configuración privada y recursos no compartibles.',
         mmDesc:
           'Plataforma que conecta productores internacionales de alimentos premium con compradores europeos, especializada en cacao y ventas al por mayor.',
         hlDesc: 'App para seguimiento de hábitos y vida saludable.'
@@ -135,14 +156,35 @@ export const translations = {
     },
     projects: {
       title: 'Projects',
+      subtitle:
+        'A selection of Android products and mobile projects I have built or I am currently developing.',
       categories: {
         all: 'All',
         android: 'Android',
-        ios: 'iOS',
-        flutter: 'Flutter'
+        multiplatform: 'Multiplatform'
+      },
+      platforms: {
+        android: 'Android',
+        multiplatform: 'Multiplatform'
+      },
+      statuses: {
+        published: 'Published',
+        inDevelopment: 'In Development',
+        private: 'Private'
+      },
+      cta: {
+        viewOnGooglePlay: 'View on Google Play',
+        comingSoon: 'Coming soon',
+        privateProject: 'Private project'
       },
       empty: 'There are no projects in this category yet.',
       items: {
+        quickEscapeDesc:
+          'Android app that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, user engagement, and Play Store distribution.',
+        trainFlowDesc:
+          'Workout tracking app focused on planning, session execution, and training history. Built with Kotlin, Jetpack Compose, and a scalable architecture with a strong focus on premium UI and user experience.',
+        mediterraneanMarketDesc:
+          'Android project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.',
         mmDesc:
           'Platform connecting international premium food producers with European buyers, specialized in cocoa and wholesale sales.',
         hlDesc: 'App for healthy habit and lifestyle tracking.'
