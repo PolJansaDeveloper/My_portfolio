@@ -1,15 +1,15 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 import perfil from '../assets/perfil.png'
 
-const Sidebar = ({ active, setActive }) => {
+const Sidebar = ({ active, setActive, lang, setLang, t }) => {
   const items = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "Sobre mí" },
-    { id: "projects", label: "Proyectos" },
-    { id: "services", label: "Servicios" },
-    { id: "contact", label: "Contacto" },
+    { id: 'home', label: t.sidebar.nav.home },
+    { id: 'about', label: t.sidebar.nav.about },
+    { id: 'projects', label: t.sidebar.nav.projects },
+    { id: 'services', label: t.sidebar.nav.services },
+    { id: 'contact', label: t.sidebar.nav.contact }
   ]
 
   return (
@@ -24,7 +24,7 @@ const Sidebar = ({ active, setActive }) => {
           <h2 className="text-xl font-semibold mt-4 text-center">Pol Jansà Sierra</h2>
           <div className="flex items-center gap-2 mt-1 text-accent font-medium">
             <FontAwesomeIcon icon={faMobileAlt} />
-            <span>Mobile Developer</span>
+            <span>{t.sidebar.role}</span>
           </div>
         </div>
 
@@ -49,6 +49,34 @@ const Sidebar = ({ active, setActive }) => {
             </ul>
           </div>
         </nav>
+
+        <div className="mt-5 mx-4 rounded-lg border border-slate-700/40 bg-slate-900/40 py-3 px-3">
+          <p className="text-xs uppercase tracking-widest text-slate-400 mb-2 text-center">{t.sidebar.language}</p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setLang('es')}
+              className={`flex-1 rounded-md border px-3 py-1.5 text-sm font-semibold transition-colors ${
+                lang === 'es'
+                  ? 'border-accent bg-accent text-slate-900'
+                  : 'border-slate-600 text-slate-200 hover:border-accent/70 hover:text-accent'
+              }`}
+            >
+              ES
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang('en')}
+              className={`flex-1 rounded-md border px-3 py-1.5 text-sm font-semibold transition-colors ${
+                lang === 'en'
+                  ? 'border-accent bg-accent text-slate-900'
+                  : 'border-slate-600 text-slate-200 hover:border-accent/70 hover:text-accent'
+              }`}
+            >
+              EN
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="border-t border-slate-700/60 my-6 mx-6"></div>
@@ -78,7 +106,7 @@ const Sidebar = ({ active, setActive }) => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

@@ -10,11 +10,9 @@ import {
 import { MdOutlineArchitecture, MdPhoneIphone, MdAutoAwesome } from 'react-icons/md'
 
 import CleanIcon from '../assets/icons/clean.svg'
-import CsharpIcon from '../assets/icons/csharp.svg'
-import PythonIcon from '../assets/icons/python.svg'
 import RestApiIcon from '../assets/icons/restapi.svg'
 
-export default function About() {
+export default function About({ t }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -42,19 +40,19 @@ export default function About() {
 
   const workStyle = [
     {
-      text: 'Clean, scalable and maintainable mobile development',
+      text: t.about.workStyle[0],
       icon: <MdOutlineArchitecture size={22} style={{ color: accentColor }} />
     },
     {
-      text: 'Strong focus on Android architecture and code quality',
+      text: t.about.workStyle[1],
       icon: <MdOutlineArchitecture size={22} style={{ color: accentColor }} />
     },
     {
-      text: 'Carefully crafted UI with attention to detail and user experience',
+      text: t.about.workStyle[2],
       icon: <MdAutoAwesome size={22} style={{ color: accentColor }} />
     },
     {
-      text: 'Problem-solving mindset, continuous improvement and professional collaboration',
+      text: t.about.workStyle[3],
       icon: <MdAutoAwesome size={22} style={{ color: accentColor }} />
     }
   ]
@@ -73,11 +71,11 @@ export default function About() {
           className="text-sm uppercase tracking-[0.25em] mb-3"
           style={{ color: accentColor }}
         >
-          About me
+          {t.about.tag}
         </p>
 
         <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-          Building modern mobile experiences
+          {t.about.title}
           <span style={{ color: accentColor }}>.</span>
         </h2>
       </div>
@@ -88,22 +86,11 @@ export default function About() {
         }`}
       >
         <p className="mb-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-4xl">
-          Hi, I’m Pol Jansa Sierra, a mobile developer focused on creating modern Android
-          applications with clean architecture, solid performance and polished user experiences.
-          I enjoy building products that are both functional and visually refined, combining
-          technical structure with attention to detail.
+          {t.about.intro}
         </p>
 
-        <p className="mb-10 text-base sm:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          My main stack is centered around <span className="font-semibold text-slate-200">Kotlin, Jetpack Compose, Firebase and Android native development</span>,
-          with a strong interest in scalable architecture patterns such as
-          <span className="font-semibold text-slate-200"> MVVM and Clean Architecture</span>.
-          I come from a background shaped by discipline, adaptability and constant growth, and I bring
-          that same mindset into software development: building with intention, learning fast and always
-          looking for better solutions.
-          <br /><br />
-          I’m especially interested in mobile products with strong UX, robust foundations and real-world
-          impact. My goal is to create apps that feel professional from both the engineering and product side.
+        <p className="mb-10 text-base sm:text-lg text-slate-400 leading-relaxed max-w-4xl whitespace-pre-line">
+          {t.about.detail}
         </p>
       </div>
 
@@ -112,7 +99,7 @@ export default function About() {
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        <h3 className="text-2xl font-semibold mb-5 text-slate-100">Core skills</h3>
+        <h3 className="text-2xl font-semibold mb-5 text-slate-100">{t.about.skillsTitle}</h3>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
           {skills.map((skill, idx) => (
@@ -136,7 +123,7 @@ export default function About() {
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        <h3 className="text-2xl font-semibold mb-5 text-slate-100">How I work</h3>
+        <h3 className="text-2xl font-semibold mb-5 text-slate-100">{t.about.workTitle}</h3>
 
         <ul className="grid gap-4 md:grid-cols-2">
           {workStyle.map((item, idx) => (
