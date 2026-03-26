@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+function encode(data) {
+  return new URLSearchParams(data).toString()
+}
 
 export default function Contact({ t }) {
-  const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState({})
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [feedback, setFeedback] = useState('')
+
+  useEffect(() => {
+    if (status === 'success') {
+      const timer = setTimeout(() => {
+        setStatus('idle')
+        setFeedback('')
+      }, 4000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [status])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,17 +39,27 @@ export default function Contact({ t }) {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
+      setStatus('idle')
       return
     }
 
     setErrors({})
+    setStatus('sending')
+    setFeedback('')
 
     try {
-      const formData = new FormData(form)
-
       const response = await fetch('/', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: encode({
+          'form-name': 'contact',
+          name,
+          email,
+          message,
+          'bot-field': form['bot-field']?.value || '',
+        }),
       })
 
       if (!response.ok) {
@@ -41,21 +67,12 @@ export default function Contact({ t }) {
       }
 
       form.reset()
-      setSubmitted(true)
+      setStatus('success')
+      setFeedback(t.contact.success)
     } catch (err) {
-      alert('Error: ' + err.message)
+      setStatus('error')
+      setFeedback(t.contact.errorSubmit || 'Something went wrong. Please try again.')
     }
-  }
-
-  if (submitted) {
-    return (
-      <section className="max-w-4xl mx-auto text-center py-12 px-4 min-h-screen overflow-y-auto">
-        <h2 className="text-4xl font-bold mb-4 text-slate-100">
-          {t.contact.thankYou}
-        </h2>
-        <p className="text-muted text-lg">{t.contact.success}</p>
-      </section>
-    )
   }
 
   return (
@@ -70,6 +87,20 @@ export default function Contact({ t }) {
           </h3>
           <p className="mt-2 text-slate-400">{t.contact.cardText}</p>
         </div>
+
+        {feedback && (
+          <div
+            className={`mb-6 rounded-xl border px-4 py-3 text-sm sm:text-base ${
+              status === 'success'
+                ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300'
+                : status === 'error'
+                ? 'border-red-500/40 bg-red-500/10 text-red-300'
+                : 'border-slate-600 bg-slate-800/70 text-slate-300'
+            }`}
+          >
+            {feedback}
+          </div>
+        )}
 
         <form
           name="contact"
@@ -96,6 +127,9 @@ export default function Contact({ t }) {
               type="text"
               name="name"
               placeholder={t.contact.placeholders.name}
+              onChange={() => {
+                if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }))
+              }}
               className={`px-4 py-3 rounded-lg border bg-slate-950/70 text-slate-100 border-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all ${
                 errors.name ? 'border-red-500' : ''
               }`}
@@ -113,6 +147,9 @@ export default function Contact({ t }) {
               type="email"
               name="email"
               placeholder={t.contact.placeholders.email}
+              onChange={() => {
+                if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }))
+              }}
               className={`px-4 py-3 rounded-lg border bg-slate-950/70 text-slate-100 border-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all ${
                 errors.email ? 'border-red-500' : ''
               }`}
@@ -129,6 +166,11 @@ export default function Contact({ t }) {
             <textarea
               name="message"
               placeholder={t.contact.placeholders.message}
+              onChange={() => {
+                if (errors.message) {
+                  setErrors((prev) => ({ ...prev, message: undefined }))
+                }
+              }}
               className={`px-4 py-3 rounded-lg border bg-slate-950/70 text-slate-100 border-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all min-h-36 resize-y ${
                 errors.message ? 'border-red-500' : ''
               }`}
@@ -140,9 +182,12 @@ export default function Contact({ t }) {
 
           <button
             type="submit"
-            className="mt-1 px-5 py-3 rounded-lg bg-accent text-slate-900 font-semibold hover:bg-sky-300 transition-all shadow-lg shadow-sky-500/20"
+            disabled={status === 'sending'}
+            className="mt-1 px-5 py-3 rounded-lg bg-accent text-slate-900 font-semibold hover:bg-sky-300 transition-all shadow-lg shadow-sky-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {t.contact.send}
+            {status === 'sending'
+              ? t.contact.sending || 'Sending...'
+              : t.contact.send}
           </button>
         </form>
       </div>
