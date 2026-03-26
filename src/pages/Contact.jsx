@@ -12,6 +12,7 @@ export default function Contact({ t }) {
     const message = form.message.value.trim()
 
     const newErrors = {}
+
     if (name.length < 2) newErrors.name = t.contact.errors.name
 
     const emailRegex = /\S+@\S+\.\S+/
@@ -27,11 +28,11 @@ export default function Contact({ t }) {
     setErrors({})
 
     try {
-      const data = new FormData(form)
+      const formData = new FormData(form)
 
       const response = await fetch('/', {
         method: 'POST',
-        body: data,
+        body: formData,
       })
 
       if (!response.ok) {
@@ -48,9 +49,7 @@ export default function Contact({ t }) {
   if (submitted) {
     return (
       <section className="max-w-4xl mx-auto text-center py-12 px-4 min-h-screen overflow-y-auto">
-        <h2 className="text-4xl font-bold mb-4 text-slate-100">
-          {t.contact.thankYou}
-        </h2>
+        <h2 className="text-4xl font-bold mb-4 text-slate-100">{t.contact.thankYou}</h2>
         <p className="text-muted text-lg">{t.contact.success}</p>
       </section>
     )
@@ -63,9 +62,7 @@ export default function Contact({ t }) {
 
       <div className="rounded-2xl border border-slate-700/70 bg-slate-900/60 shadow-xl shadow-black/30 p-6 sm:p-8">
         <div className="mb-6 pb-5 border-b border-slate-700/60">
-          <h3 className="text-2xl font-semibold text-slate-100">
-            {t.contact.cardTitle}
-          </h3>
+          <h3 className="text-2xl font-semibold text-slate-100">{t.contact.cardTitle}</h3>
           <p className="mt-2 text-slate-400">{t.contact.cardText}</p>
         </div>
 
@@ -81,7 +78,8 @@ export default function Contact({ t }) {
 
           <p className="hidden">
             <label>
-              {t.contact.honeypot} <input name="bot-field" />
+              {t.contact.honeypot}
+              <input name="bot-field" />
             </label>
           </p>
 
@@ -97,9 +95,7 @@ export default function Contact({ t }) {
                 errors.name ? 'border-red-500' : ''
               }`}
             />
-            {errors.name && (
-              <span className="text-red-500 text-sm mt-1">{errors.name}</span>
-            )}
+            {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
           </div>
 
           <div className="flex flex-col">
@@ -114,9 +110,7 @@ export default function Contact({ t }) {
                 errors.email ? 'border-red-500' : ''
               }`}
             />
-            {errors.email && (
-              <span className="text-red-500 text-sm mt-1">{errors.email}</span>
-            )}
+            {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
           </div>
 
           <div className="flex flex-col">
@@ -130,9 +124,7 @@ export default function Contact({ t }) {
                 errors.message ? 'border-red-500' : ''
               }`}
             />
-            {errors.message && (
-              <span className="text-red-500 text-sm mt-1">{errors.message}</span>
-            )}
+            {errors.message && <span className="text-red-500 text-sm mt-1">{errors.message}</span>}
           </div>
 
           <button
