@@ -1,49 +1,103 @@
 import React, { useState } from 'react'
 import MM from '../assets/MM.png'
-import HL from '../assets/HL.png'
+import QuickEscapeImg from '../assets/quickescape.png'
+import TrainFlowImg from '../assets/trainglow.png'
 
-const initial = [
+const initialProjects = [
   {
     id: 1,
-    title: 'Mediterranean Market',
-    tags: ['android'],
-    descKey: 'mmDesc',
-    img: MM
+    title: 'QuickEscape',
+    platform: 'android',
+    status: 'published',
+    img: QuickEscapeImg,
+    description:
+      'Android app that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, user engagement, and Play Store distribution.',
+    links: {
+      playStore: '#'
+    }
   },
   {
     id: 2,
-    title: 'Healthy Life Inventive',
-    tags: ['android'],
-    descKey: 'hlDesc',
-    img: HL
+    title: 'TrainFlow',
+    platform: 'android',
+    status: 'in-development',
+    img: TrainFlowImg,
+    description:
+      'Workout tracking app focused on planning, session execution, and training history. Built with Kotlin, Jetpack Compose, and a scalable architecture with a strong focus on premium UI and user experience.',
+    links: {}
+  },
+  {
+    id: 3,
+    title: 'Mediterranean Market',
+    platform: 'android',
+    status: 'private',
+    img: MM,
+    description:
+      'Android project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.',
+    links: {}
   }
 ]
+
+function getStatusStyles(status) {
+  switch (status) {
+    case 'published':
+      return 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
+    case 'in-development':
+      return 'bg-amber-500/15 text-amber-300 border border-amber-500/30'
+    case 'private':
+      return 'bg-slate-500/15 text-slate-300 border border-slate-500/30'
+    default:
+      return 'bg-slate-500/15 text-slate-300 border border-slate-500/30'
+  }
+}
+
+function getStatusLabel(status) {
+  switch (status) {
+    case 'published':
+      return 'Published'
+    case 'in-development':
+      return 'In Development'
+    case 'private':
+      return 'Private'
+    default:
+      return status
+  }
+}
 
 export default function Projects({ t }) {
   const [filter, setFilter] = useState('all')
 
   const categories = [
-    { id: 'all', label: t.projects.categories.all },
-    { id: 'android', label: t.projects.categories.android },
-    { id: 'ios', label: t.projects.categories.ios },
-    { id: 'flutter', label: t.projects.categories.flutter }
+    { id: 'all', label: t?.projects?.categories?.all || 'All' },
+    { id: 'android', label: t?.projects?.categories?.android || 'Android' },
+    { id: 'multiplatform', label: t?.projects?.categories?.multiplatform || 'Multiplatform' }
   ]
 
-  const projects = initial.filter((p) => (filter === 'all' ? true : p.tags.includes(filter)))
+  const filteredProjects = initialProjects.filter((project) =>
+    filter === 'all' ? true : project.platform === filter
+  )
 
   return (
-    <div className="max-w-5xl mx-auto w-full py-12">
-      <h2 className="text-3xl font-bold mb-6 text-slate-100">{t.projects.title}</h2>
+    <section className="max-w-6xl mx-auto w-full py-12 px-4">
+      <div className="mb-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">
+          {t?.projects?.title || 'Projects'}
+        </h2>
+        <p className="mt-3 text-slate-400 max-w-2xl">
+          {t?.projects?.subtitle ||
+            'A selection of Android products and mobile projects I have built or I am currently developing.'}
+        </p>
+      </div>
 
-      <div className="mb-8 flex gap-2 flex-wrap">
+      <div className="mb-10 flex gap-2 flex-wrap">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => setFilter(category.id)}
-            className={`px-3 py-1 rounded-md border transition-colors ${
+            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
               filter === category.id
-                ? 'bg-accent text-slate-900 border-accent font-bold'
-                : 'bg-panel/30 text-muted border-slate-700 hover:text-slate-100'
+                ? 'bg-accent text-slate-900 border-accent shadow-lg shadow-sky-500/20'
+                : 'bg-panel/30 text-slate-300 border-slate-700 hover:text-slate-100 hover:border-slate-500'
             }`}
           >
             {category.label}
@@ -51,24 +105,83 @@ export default function Projects({ t }) {
         ))}
       </div>
 
-      {projects.length === 0 ? (
-        <p className="text-muted">{t.projects.empty}</p>
+      {filteredProjects.length === 0 ? (
+        <div className="rounded-2xl border border-slate-700/70 bg-slate-900/50 p-6 text-slate-400">
+          {t?.projects?.empty || 'No projects available in this category yet.'}
+        </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((p) => (
-            <article
-              key={p.id}
-              className="bg-panel/70 border border-slate-700/70 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:border-accent/60"
-            >
-              <h3 className="font-semibold text-xl mb-2 text-accent px-4 pt-4">{p.title}</h3>
-              <img src={p.img} alt={p.title} className="w-full h-48 object-cover" />
-              <div className="p-4">
-                <p className="text-muted text-sm">{t.projects.items[p.descKey]}</p>
-              </div>
-            </article>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => {
+            const hasPublicLink = Boolean(project.links?.playStore && project.links.playStore !== '#')
+
+            return (
+              <article
+                key={project.id}
+                className="group h-full overflow-hidden rounded-2xl border border-slate-700/70 bg-slate-900/65 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold border bg-sky-500/15 text-sky-300 border-sky-500/30">
+                      {project.platform === 'android' ? 'Android' : 'Multiplatform'}
+                    </span>
+
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusStyles(project.status)}`}
+                    >
+                      {getStatusLabel(project.status)}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-5 flex flex-col h-[calc(100%-13rem)]">
+                  <h3 className="text-xl font-semibold text-slate-100 mb-3">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-slate-400 text-sm leading-6 flex-1">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {project.status === 'published' && (
+                      <a
+                        href={project.links.playStore}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold transition-all ${
+                          hasPublicLink
+                            ? 'bg-accent text-slate-900 hover:bg-sky-300 shadow-lg shadow-sky-500/20'
+                            : 'bg-slate-700 text-slate-300 cursor-not-allowed pointer-events-none'
+                        }`}
+                      >
+                        View on Google Play
+                      </a>
+                    )}
+
+                    {project.status === 'in-development' && (
+                      <span className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                        Coming soon
+                      </span>
+                    )}
+
+                    {project.status === 'private' && (
+                      <span className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold bg-slate-700/60 text-slate-300 border border-slate-600">
+                        Private project
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
       )}
-    </div>
+    </section>
   )
 }
