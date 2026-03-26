@@ -3,6 +3,16 @@ import MM from '../assets/MM.png'
 import QuickEscapeImg from '../assets/quickescape.png'
 import TrainFlowImg from '../assets/trainglow.png'
 
+
+const fallbackDescriptions = {
+  quickEscapeDesc:
+    'Android app that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, user engagement, and Play Store distribution.',
+  trainFlowDesc:
+    'Workout tracking app focused on planning, session execution, and training history. Built with Kotlin, Jetpack Compose, and a scalable architecture with a strong focus on premium UI and user experience.',
+  mediterraneanMarketDesc:
+    'Android project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.'
+}
+
 const initialProjects = [
   {
     id: 1,
@@ -10,8 +20,7 @@ const initialProjects = [
     platform: 'android',
     status: 'published',
     img: QuickEscapeImg,
-    description:
-      'Android app that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, user engagement, and Play Store distribution.',
+    descriptionKey: 'quickEscapeDesc',
     links: {
       playStore: '#'
     }
@@ -22,8 +31,7 @@ const initialProjects = [
     platform: 'android',
     status: 'in-development',
     img: TrainFlowImg,
-    description:
-      'Workout tracking app focused on planning, session execution, and training history. Built with Kotlin, Jetpack Compose, and a scalable architecture with a strong focus on premium UI and user experience.',
+    descriptionKey: 'trainFlowDesc',
     links: {}
   },
   {
@@ -32,8 +40,7 @@ const initialProjects = [
     platform: 'android',
     status: 'private',
     img: MM,
-    description:
-      'Android project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.',
+    descriptionKey: 'mediterraneanMarketDesc',
     links: {}
   }
 ]
@@ -51,14 +58,14 @@ function getStatusStyles(status) {
   }
 }
 
-function getStatusLabel(status) {
+function getStatusLabel(status, t) {
   switch (status) {
     case 'published':
-      return 'Published'
+      return t?.projects?.statuses?.published || 'Published'
     case 'in-development':
-      return 'In Development'
+      return t?.projects?.statuses?.inDevelopment || 'In Development'
     case 'private':
-      return 'Private'
+      return t?.projects?.statuses?.private || 'Private'
     default:
       return status
   }
@@ -128,13 +135,15 @@ export default function Projects({ t }) {
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                     <span className="px-3 py-1 rounded-full text-xs font-semibold border bg-sky-500/15 text-sky-300 border-sky-500/30">
-                      {project.platform === 'android' ? 'Android' : 'Multiplatform'}
+                      {project.platform === 'android'
+                        ? t?.projects?.platforms?.android || 'Android'
+                        : t?.projects?.platforms?.multiplatform || 'Multiplatform'}
                     </span>
 
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusStyles(project.status)}`}
                     >
-                      {getStatusLabel(project.status)}
+                      {getStatusLabel(project.status, t)}
                     </span>
                   </div>
                 </div>
@@ -145,7 +154,7 @@ export default function Projects({ t }) {
                   </h3>
 
                   <p className="text-slate-400 text-sm leading-6 flex-1">
-                    {project.description}
+                    {t?.projects?.items?.[project.descriptionKey] || fallbackDescriptions[project.descriptionKey]}
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-3">
@@ -160,19 +169,19 @@ export default function Projects({ t }) {
                             : 'bg-slate-700 text-slate-300 cursor-not-allowed pointer-events-none'
                         }`}
                       >
-                        View on Google Play
+                        {t?.projects?.cta?.viewOnGooglePlay || 'View on Google Play'}
                       </a>
                     )}
 
                     {project.status === 'in-development' && (
                       <span className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
-                        Coming soon
+                        {t?.projects?.cta?.comingSoon || 'Coming soon'}
                       </span>
                     )}
 
                     {project.status === 'private' && (
                       <span className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold bg-slate-700/60 text-slate-300 border border-slate-600">
-                        Private project
+                        {t?.projects?.cta?.privateProject || 'Private project'}
                       </span>
                     )}
                   </div>
