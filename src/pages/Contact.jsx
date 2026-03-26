@@ -13,7 +13,6 @@ export default function Contact() {
     const email = form.email.value.trim()
     const message = form.message.value.trim()
 
-    // Validación
     const newErrors = {}
     if (name.length < 2) newErrors.name = 'Por favor escribe un nombre válido.'
     const emailRegex = /\S+@\S+\.\S+/
@@ -25,7 +24,6 @@ export default function Contact() {
       return
     }
 
-    // Enviar datos a Netlify
     const data = new FormData(form)
     fetch('/', { method: 'POST', body: data })
       .then(() => setSubmitted(true))
@@ -35,7 +33,7 @@ export default function Contact() {
   if (submitted) {
     return (
       <section className="max-w-4xl mx-auto text-center py-12">
-        <h2 className="text-4xl font-bold mb-4 text-white">Gracias</h2>
+        <h2 className="text-4xl font-bold mb-4 text-slate-100">Gracias</h2>
         <p className="text-muted text-lg">
           Tu mensaje ha sido enviado. ¡Te contactaré pronto!
         </p>
@@ -45,7 +43,7 @@ export default function Contact() {
 
   return (
     <section className="max-w-4xl mx-auto text-center py-12">
-      <h2 className="text-4xl font-bold mb-6 text-white">Contacto</h2>
+      <h2 className="text-4xl font-bold mb-6 text-slate-100">Contacto</h2>
       <p className="mb-8 text-muted">
         ¿Tienes un proyecto o quieres colaborar? Escríbeme y lo hablamos.
       </p>
@@ -70,7 +68,7 @@ export default function Contact() {
             type="text"
             name="name"
             placeholder="Nombre"
-            className={`px-4 py-2 rounded border bg-transparent text-white border-white/20 ${
+            className={`px-4 py-2 rounded border bg-slate-900/60 text-slate-100 border-slate-600 focus:border-accent focus:outline-none ${
               errors.name ? 'border-red-500' : ''
             }`}
           />
@@ -82,7 +80,7 @@ export default function Contact() {
             type="email"
             name="email"
             placeholder="Correo electrónico"
-            className={`px-4 py-2 rounded border bg-transparent text-white border-white/20 ${
+            className={`px-4 py-2 rounded border bg-slate-900/60 text-slate-100 border-slate-600 focus:border-accent focus:outline-none ${
               errors.email ? 'border-red-500' : ''
             }`}
           />
@@ -93,7 +91,7 @@ export default function Contact() {
           <textarea
             name="message"
             placeholder="Mensaje"
-            className={`px-4 py-2 rounded border bg-transparent text-white border-white/20 ${
+            className={`px-4 py-2 rounded border bg-slate-900/60 text-slate-100 border-slate-600 focus:border-accent focus:outline-none min-h-32 ${
               errors.message ? 'border-red-500' : ''
             }`}
           />
@@ -102,15 +100,14 @@ export default function Contact() {
 
         <button
           type="submit"
-          className="mt-2 px-4 py-2 rounded border border-white text-black font-semibold"
-          style={{ backgroundColor: '#00FF7F' }} // Fondo verde, letras negras
+          className="mt-2 px-4 py-2 rounded bg-accent text-slate-900 font-semibold hover:bg-sky-300 transition-colors"
         >
           Enviar
         </button>
 
         <a
           href="mailto:poljansa.developer@gmail.com"
-          className="mt-4 flex items-center justify-center gap-2 text-green-400 hover:underline"
+          className="mt-4 flex items-center justify-center gap-2 text-accent hover:underline"
         >
           <FontAwesomeIcon icon={faEnvelope} className="text-lg" />
           Contactar por email
