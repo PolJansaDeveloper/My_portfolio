@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools, faClock } from '@fortawesome/free-solid-svg-icons'
 
-export default function Services() {
+export default function Services({ t }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -10,15 +10,15 @@ export default function Services() {
   }, [])
 
   const services = [
-    { title: 'Próximamente', description: 'Servicios disponibles muy pronto.', icon: faTools },
-    { title: 'En construcción', description: 'Estoy trabajando para ofrecerte lo mejor.', icon: faClock },
-    { title: 'Coming Soon', description: 'Mantente atento a futuras actualizaciones.', icon: faTools }
+    { ...t.services.items[0], icon: faTools },
+    { ...t.services.items[1], icon: faClock },
+    { ...t.services.items[2], icon: faTools }
   ]
 
   return (
     <section className="h-screen flex flex-col justify-center items-center text-slate-100 px-4">
       <h2 className={`text-4xl font-bold mb-12 transition-transform duration-700 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-        Servicios
+        {t.services.title}
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">

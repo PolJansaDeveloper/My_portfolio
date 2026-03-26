@@ -3,7 +3,7 @@ import Typing from '../components/Typing'
 import fondo from '../assets/fondo.png'
 import LogoPJDev from '../assets/LogoPJDev.png'
 
-export default function Home() {
+export default function Home({ t }) {
   const [fade, setFade] = useState(true)
   const [mounted, setMounted] = useState(false)
 
@@ -44,22 +44,13 @@ export default function Home() {
             mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'
           }`}
         >
-          Hola,
+          {t.home.hello}
         </div>
 
         <div
           className={`text-2xl mb-6 transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
         >
-          <Typing
-            strings={[
-              'Me apasiona la arquitectura móvil.',
-              'Soy Android Developer.',
-              'Desarrollo aplicaciones móviles con arquitectura limpia y rendimiento.'
-            ]}
-            speed={120}
-            pause={1400}
-            style={{ color: '#7dd3fc' }}
-          />
+          <Typing strings={t.home.typing} speed={120} pause={1400} style={{ color: '#7dd3fc' }} />
         </div>
 
         <p
@@ -67,7 +58,7 @@ export default function Home() {
             mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'
           }`}
         >
-          Aplicaciones móviles que conectan usuarios y negocios, con tecnología y estética profesional.
+          {t.home.description}
         </p>
       </div>
     </section>
