@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { FaJava, FaGithub, FaAndroid } from 'react-icons/fa'
-import { SiKotlin, SiJetpackcompose, SiFirebase } from 'react-icons/si'
-import { MdSettings, MdPeople } from 'react-icons/md'
+import {
+  SiKotlin,
+  SiJetpackcompose,
+  SiFirebase,
+  SiGit,
+  SiIntellijidea
+} from 'react-icons/si'
+import { MdOutlineArchitecture, MdPhoneIphone, MdAutoAwesome } from 'react-icons/md'
 
 import CleanIcon from '../assets/icons/clean.svg'
 import CsharpIcon from '../assets/icons/csharp.svg'
@@ -16,72 +22,130 @@ export default function About() {
   }, [])
 
   const accentColor = '#38bdf8'
-  const iconFilter = 'invert(69%) sepia(19%) saturate(1321%) hue-rotate(166deg) brightness(101%) contrast(96%)'
+  const iconFilter =
+    'invert(69%) sepia(19%) saturate(1321%) hue-rotate(166deg) brightness(101%) contrast(96%)'
 
   const skills = [
-    { name: 'Kotlin', icon: <SiKotlin size={32} style={{ color: accentColor }} /> },
-    { name: 'Java', icon: <FaJava size={32} style={{ color: accentColor }} /> },
-    { name: 'C#', icon: <img src={CsharpIcon} alt="C#" className="w-8 h-8" style={{ filter: iconFilter }} /> },
-    { name: 'Python', icon: <img src={PythonIcon} alt="Python" className="w-8 h-8" style={{ filter: iconFilter }} /> },
-    { name: 'Android SDK', icon: <FaAndroid size={32} style={{ color: accentColor }} /> },
-    { name: 'Jetpack Compose', icon: <SiJetpackcompose size={32} style={{ color: accentColor }} /> },
-    { name: 'Clean Architecture', icon: <img src={CleanIcon} alt="Clean Architecture" className="w-8 h-8" style={{ filter: iconFilter }} /> },
-    { name: 'Firebase', icon: <SiFirebase size={32} style={{ color: accentColor }} /> },
-    { name: 'REST APIs', icon: <img src={RestApiIcon} alt="REST APIs" className="w-8 h-8" style={{ filter: iconFilter }} /> },
-    { name: 'Git / GitHub', icon: <FaGithub size={32} style={{ color: accentColor }} /> }
+    { name: 'Kotlin', icon: <SiKotlin size={30} style={{ color: accentColor }} /> },
+    { name: 'Java', icon: <FaJava size={30} style={{ color: accentColor }} /> },
+    { name: 'Android SDK', icon: <FaAndroid size={30} style={{ color: accentColor }} /> },
+    { name: 'Jetpack Compose', icon: <SiJetpackcompose size={30} style={{ color: accentColor }} /> },
+    { name: 'Firebase', icon: <SiFirebase size={30} style={{ color: accentColor }} /> },
+    { name: 'REST APIs', icon: <img src={RestApiIcon} alt="REST APIs" className="w-7 h-7" style={{ filter: iconFilter }} /> },
+    { name: 'Clean Architecture', icon: <img src={CleanIcon} alt="Clean Architecture" className="w-7 h-7" style={{ filter: iconFilter }} /> },
+    { name: 'MVVM', icon: <MdOutlineArchitecture size={30} style={{ color: accentColor }} /> },
+    { name: 'Git', icon: <SiGit size={30} style={{ color: accentColor }} /> },
+    { name: 'GitHub', icon: <FaGithub size={30} style={{ color: accentColor }} /> },
+    { name: 'Android Studio', icon: <SiIntellijidea size={30} style={{ color: accentColor }} /> },
+    { name: 'Mobile UI', icon: <MdPhoneIphone size={30} style={{ color: accentColor }} /> }
   ]
 
   const workStyle = [
-    { text: 'Código limpio y mantenible', icon: <MdSettings size={24} style={{ color: accentColor }} /> },
-    { text: 'Arquitectura MVVM y patrones profesionales', icon: <MdSettings size={24} style={{ color: accentColor }} /> },
-    { text: 'Enfoque en experiencia de usuario', icon: <MdPeople size={24} style={{ color: accentColor }} /> },
-    { text: 'Aprendizaje constante y colaboración', icon: <MdPeople size={24} style={{ color: accentColor }} /> }
+    {
+      text: 'Clean, scalable and maintainable mobile development',
+      icon: <MdOutlineArchitecture size={22} style={{ color: accentColor }} />
+    },
+    {
+      text: 'Strong focus on Android architecture and code quality',
+      icon: <MdOutlineArchitecture size={22} style={{ color: accentColor }} />
+    },
+    {
+      text: 'Carefully crafted UI with attention to detail and user experience',
+      icon: <MdAutoAwesome size={22} style={{ color: accentColor }} />
+    },
+    {
+      text: 'Problem-solving mindset, continuous improvement and professional collaboration',
+      icon: <MdAutoAwesome size={22} style={{ color: accentColor }} />
+    }
   ]
 
   return (
-    <section className="max-w-5xl mx-auto py-12 px-4 text-slate-100 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 2rem)' }}>
-      <h2 className={`text-4xl font-bold mb-6 transition-transform duration-700 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-        Sobre mí
-      </h2>
+    <section
+      className="max-w-6xl mx-auto py-14 px-4 sm:px-6 text-slate-100 overflow-y-auto"
+      style={{ maxHeight: 'calc(100vh - 2rem)' }}
+    >
+      <div
+        className={`transition-all duration-700 ${
+          mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+        }`}
+      >
+        <p
+          className="text-sm uppercase tracking-[0.25em] mb-3"
+          style={{ color: accentColor }}
+        >
+          About me
+        </p>
 
-      <p className={`mb-8 text-lg text-muted transition-transform duration-700 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-        Hola, soy Pol Jansa Sierra <span style={{ color: accentColor, fontWeight: 'bold' }}>{'{ } PJDev'}</span>, Junior Android Developer apasionado por crear apps móviles funcionales y bonitas.
-      </p>
+        <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+          Building modern mobile experiences
+          <span style={{ color: accentColor }}>.</span>
+        </h2>
+      </div>
 
-      <p className={`mb-8 text-muted text-lg transition-transform duration-700 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-        Soy Android Developer especializado en Java, Kotlin, Jetpack Compose y Firebase, con enfoque en arquitecturas limpias como MVVM y Clean Architecture.
-        Me apasiona crear aplicaciones móviles escalables, con código limpio y experiencia de usuario cuidada.<br /><br />
-        Mi trayectoria comenzó en el ámbito deportivo, donde aprendí disciplina, trabajo en equipo y mejora continua como entrenador, profesor de esquí y jugador profesional de hockey.
-        A los 28 años decidí seguir mi pasión por la tecnología y me formé en Desarrollo de Aplicaciones Multiplataforma, consolidando mi base en Android.<br /><br />
-        He viajado y trabajado en distintos contextos culturales, lo que amplió mi visión global y perfeccionó mi inglés, fortaleciendo mi creatividad y mentalidad abierta.
-        Recientemente completé un Máster en Desarrollo Móvil para Android y actualmente busco nuevos retos para crecer, aportar valor y seguir aprendiendo cada día.
-      </p>
+      <div
+        className={`transition-all duration-700 delay-100 ${
+          mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+        }`}
+      >
+        <p className="mb-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-4xl">
+          Hi, I’m Pol Jansa Sierra, a mobile developer focused on creating modern Android
+          applications with clean architecture, solid performance and polished user experiences.
+          I enjoy building products that are both functional and visually refined, combining
+          technical structure with attention to detail.
+        </p>
 
-      <div className="mb-12">
-        <h3 className="text-2xl font-semibold mb-4">Skills</h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
+        <p className="mb-10 text-base sm:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          My main stack is centered around <span className="font-semibold text-slate-200">Kotlin, Jetpack Compose, Firebase and Android native development</span>,
+          with a strong interest in scalable architecture patterns such as
+          <span className="font-semibold text-slate-200"> MVVM and Clean Architecture</span>.
+          I come from a background shaped by discipline, adaptability and constant growth, and I bring
+          that same mindset into software development: building with intention, learning fast and always
+          looking for better solutions.
+          <br /><br />
+          I’m especially interested in mobile products with strong UX, robust foundations and real-world
+          impact. My goal is to create apps that feel professional from both the engineering and product side.
+        </p>
+      </div>
+
+      <div
+        className={`mb-14 transition-all duration-700 delay-200 ${
+          mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+        }`}
+      >
+        <h3 className="text-2xl font-semibold mb-5 text-slate-100">Core skills</h3>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center p-4 rounded-full bg-slate-800/80 border border-slate-600 text-accent hover:bg-slate-700/90 hover:scale-110 transition-transform duration-300 cursor-pointer"
+              className="group flex flex-col items-center justify-center min-h-[120px] p-4 rounded-2xl bg-slate-800/70 border border-slate-700/70 hover:border-sky-400/50 hover:bg-slate-800 transition-all duration-300 hover:-translate-y-1"
             >
-              {skill.icon}
-              <span className="text-sm text-center mt-1 text-slate-200">{skill.name}</span>
+              <div className="mb-3 transition-transform duration-300 group-hover:scale-110">
+                {skill.icon}
+              </div>
+              <span className="text-sm text-center text-slate-200 leading-snug">
+                {skill.name}
+              </span>
             </div>
           ))}
         </div>
       </div>
 
-      <div>
-        <h3 className="text-2xl font-semibold mb-4">Mi estilo de trabajo</h3>
-        <ul className="space-y-3">
+      <div
+        className={`transition-all duration-700 delay-300 ${
+          mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
+        }`}
+      >
+        <h3 className="text-2xl font-semibold mb-5 text-slate-100">How I work</h3>
+
+        <ul className="grid gap-4 md:grid-cols-2">
           {workStyle.map((item, idx) => (
             <li
               key={idx}
-              className="flex items-center gap-3 bg-slate-800/80 p-3 rounded border border-slate-700/70 hover:border-accent/60 transition-colors duration-300"
+              className="flex items-start gap-3 bg-slate-800/70 p-5 rounded-2xl border border-slate-700/70 hover:border-sky-400/40 transition-all duration-300"
             >
-              {item.icon}
-              <span>{item.text}</span>
+              <div className="mt-0.5">{item.icon}</div>
+              <span className="text-slate-300 leading-relaxed">{item.text}</span>
             </li>
           ))}
         </ul>
