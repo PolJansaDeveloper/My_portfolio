@@ -37,14 +37,37 @@ export const translations = {
         'Mentalidad resolutiva, mejora continua y colaboración profesional'
       ]
     },
-    services: {
-      title: 'Servicios',
-      items: [
-        { title: 'Próximamente', description: 'Servicios disponibles muy pronto.' },
-        { title: 'En construcción', description: 'Estoy trabajando para ofrecerte lo mejor.' },
-        { title: 'Muy pronto', description: 'Mantente atento a futuras actualizaciones.' }
-      ]
+services: {
+  tag: "Lo que ofrezco",
+  title: "Servicios",
+  subtitle: "Desarrollo aplicaciones Android a medida, desde la idea hasta la publicación en Play Store.",
+  items: [
+    {
+      title: "Desarrollo de apps Android",
+      description: "Creo aplicaciones nativas desde cero con Kotlin y Jetpack Compose, optimizadas para rendimiento y buena experiencia de usuario."
     },
+    {
+      title: "Publicación en Play Store",
+      description: "Me encargo de todo el proceso de lanzamiento: configuración, firma, optimización del listing y gestión de releases."
+    },
+    {
+      title: "Integración de APIs",
+      description: "Conecto tu app con backends externos, servicios REST y Firebase para que tus datos estén siempre sincronizados."
+    },
+    {
+      title: "Mejora de apps existentes",
+      description: "Refactorizo, corrijo bugs y mejoro el rendimiento de aplicaciones Android que ya están en producción."
+    },
+    {
+      title: "UI/UX Mobile",
+      description: "Diseño e implemento interfaces modernas siguiendo las guías de Material Design, adaptadas a distintos tamaños de pantalla."
+    },
+    {
+      title: "Consultoría Android",
+      description: "Te ayudo a tomar decisiones técnicas: arquitectura, stack tecnológico, o revisión de código de tu equipo."
+    }
+  ]
+},
     projects: {
       title: 'Proyectos',
       subtitle:
@@ -146,14 +169,37 @@ export const translations = {
         'Problem-solving mindset, continuous improvement and professional collaboration'
       ]
     },
-    services: {
-      title: 'Services',
-      items: [
-        { title: 'Coming soon', description: 'Services will be available very soon.' },
-        { title: 'In progress', description: 'I am working to offer you the best.' },
-        { title: 'Stay tuned', description: 'Keep an eye on upcoming updates.' }
-      ]
+services: {
+  tag: "What I offer",
+  title: "Services",
+  subtitle: "I build custom Android apps, from idea to Play Store launch.",
+  items: [
+    {
+      title: "Android App Development",
+      description: "I build native Android apps from scratch using Kotlin and Jetpack Compose, focused on performance and great user experience."
     },
+    {
+      title: "Play Store Publishing",
+      description: "I handle the full release process: setup, signing, listing optimization, and release management."
+    },
+    {
+      title: "API Integration",
+      description: "I connect your app to backends, REST services, and Firebase so your data stays in sync across platforms."
+    },
+    {
+      title: "App Improvement",
+      description: "I refactor, fix bugs, and boost performance of existing Android apps already running in production."
+    },
+    {
+      title: "Mobile UI/UX",
+      description: "I design and implement modern interfaces following Material Design guidelines, adapted for all screen sizes."
+    },
+    {
+      title: "Android Consulting",
+      description: "I help you make smart technical decisions around architecture, tech stack, or code review for your team."
+    }
+  ]
+},
     projects: {
       title: 'Projects',
       subtitle:
