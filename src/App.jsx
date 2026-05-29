@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -8,31 +8,55 @@ import Contact from './pages/Contact'
 import { translations } from './i18n'
 
 export default function App() {
-  const views = ['home', 'about', 'services', 'projects', 'contact']
   const [active, setActive] = useState('home')
   const [lang, setLang] = useState('es')
-  const trackRef = useRef()
+
   const t = translations[lang]
 
   useEffect(() => {
-    const idx = views.indexOf(active)
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateY(-${idx * 100}vh)`
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [active])
 
+  const ActivePage = useMemo(() => {
+    switch (active) {
+      case 'home':
+        return <Home t={t} />
+
+      case 'about':
+        return <About t={t} />
+
+      case 'services':
+        return <Services t={t} />
+
+      case 'projects':
+        return <Projects t={t} />
+
+      case 'contact':
+        return <Contact t={t} />
+
+      default:
+        return <Home t={t} />
+    }
+  }, [active, t])
+
   return (
-    <div className="app-shell">
+    <div className="app-shell min-h-screen">
       <aside className="sidebar-fixed">
-        <Sidebar active={active} setActive={setActive} lang={lang} setLang={setLang} t={t} />
+        <Sidebar
+          active={active}
+          setActive={setActive}
+          lang={lang}
+          setLang={setLang}
+          t={t}
+        />
       </aside>
-      <main className="content-area">
-        <div ref={trackRef} className="view-track">
-          <section id="home" className="section-full bg-gradient-to-b from-bg/60 to-transparent"><Home t={t} /></section>
-          <section id="about" className="section-full"><About t={t} /></section>
-          <section id="services" className="section-full"><Services t={t} /></section>
-          <section id="projects" className="section-full"><Projects t={t} /></section>
-          <section id="contact" className="section-full"><Contact t={t} /></section>
+
+      <main className="content-area min-h-screen overflow-y-auto">
+        <div
+          key={`${active}-${lang}`}
+          className="min-h-screen w-full animate-fadeIn"
+        >
+          {ActivePage}
         </div>
       </main>
     </div>
