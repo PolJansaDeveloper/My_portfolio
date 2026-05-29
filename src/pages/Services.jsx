@@ -79,6 +79,7 @@ export default function Services({ t }) {
   ]
 
   const servicesContent = t?.services || fallbackServices
+
   const serviceItems =
     Array.isArray(servicesContent.items) && servicesContent.items.length > 0
       ? servicesContent.items
@@ -90,7 +91,7 @@ export default function Services({ t }) {
   }))
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-slate-100 px-4 py-14">
+    <section className="min-h-screen flex flex-col items-center text-slate-100 px-4 py-14">
       <p
         className={`text-sm uppercase tracking-[0.25em] mb-3 text-sky-400 transition-all duration-700 ${
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
