@@ -6,7 +6,7 @@ function encode(data) {
 
 export default function Contact({ t }) {
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [status, setStatus] = useState('idle')
   const [feedback, setFeedback] = useState('')
 
   useEffect(() => {
@@ -51,15 +51,15 @@ export default function Contact({ t }) {
       const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: encode({
           'form-name': 'contact',
           name,
           email,
           message,
-          'bot-field': form['bot-field']?.value || '',
-        }),
+          'bot-field': form['bot-field']?.value || ''
+        })
       })
 
       if (!response.ok) {
@@ -76,16 +76,24 @@ export default function Contact({ t }) {
   }
 
   return (
-    <section className="max-w-4xl mx-auto py-12 px-4 text-slate-100 min-h-screen overflow-y-auto">
-      <h2 className="text-4xl font-bold mb-4 text-center">{t.contact.title}</h2>
-      <p className="mb-10 text-muted text-center">{t.contact.subtitle}</p>
+    <section className="max-w-4xl mx-auto w-full py-12 px-4 text-slate-100">
+      <h2 className="text-4xl font-bold mb-4 text-center">
+        {t.contact.title}
+      </h2>
+
+      <p className="mb-10 text-slate-400 text-center">
+        {t.contact.subtitle}
+      </p>
 
       <div className="rounded-2xl border border-slate-700/70 bg-slate-900/60 shadow-xl shadow-black/30 p-6 sm:p-8">
         <div className="mb-6 pb-5 border-b border-slate-700/60">
           <h3 className="text-2xl font-semibold text-slate-100">
             {t.contact.cardTitle}
           </h3>
-          <p className="mt-2 text-slate-400">{t.contact.cardText}</p>
+
+          <p className="mt-2 text-slate-400">
+            {t.contact.cardText}
+          </p>
         </div>
 
         {feedback && (
@@ -123,6 +131,7 @@ export default function Contact({ t }) {
             <label className="text-sm font-medium text-slate-300 mb-2">
               {t.contact.labels.name}
             </label>
+
             <input
               type="text"
               name="name"
@@ -134,6 +143,7 @@ export default function Contact({ t }) {
                 errors.name ? 'border-red-500' : ''
               }`}
             />
+
             {errors.name && (
               <span className="text-red-500 text-sm mt-1">{errors.name}</span>
             )}
@@ -143,6 +153,7 @@ export default function Contact({ t }) {
             <label className="text-sm font-medium text-slate-300 mb-2">
               {t.contact.labels.email}
             </label>
+
             <input
               type="email"
               name="email"
@@ -154,6 +165,7 @@ export default function Contact({ t }) {
                 errors.email ? 'border-red-500' : ''
               }`}
             />
+
             {errors.email && (
               <span className="text-red-500 text-sm mt-1">{errors.email}</span>
             )}
@@ -163,6 +175,7 @@ export default function Contact({ t }) {
             <label className="text-sm font-medium text-slate-300 mb-2">
               {t.contact.labels.message}
             </label>
+
             <textarea
               name="message"
               placeholder={t.contact.placeholders.message}
@@ -175,6 +188,7 @@ export default function Contact({ t }) {
                 errors.message ? 'border-red-500' : ''
               }`}
             />
+
             {errors.message && (
               <span className="text-red-500 text-sm mt-1">{errors.message}</span>
             )}
