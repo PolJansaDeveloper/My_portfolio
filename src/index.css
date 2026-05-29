@@ -2,27 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --bg-main:#0b1120;
-  --bg-soft:#111827;
-  --border-soft:rgba(148,163,184,.25);
-  --accent:#38bdf8;
-  --accent-strong:#0ea5e9;
+:root {
+  --bg-main: #0b1120;
+  --bg-soft: #111827;
+  --border-soft: rgba(148, 163, 184, .25);
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
 }
 
-/* custom */
-html,body,#root{height:100%;background:var(--bg-main);color:#e2e8f0}
-.app-shell{height:100vh;display:flex;overflow:hidden;background:radial-gradient(circle at top right, rgba(56,189,248,.14), transparent 42%),var(--bg-main)}
-.sidebar-fixed{width:280px;flex-shrink:0;border-right:1px solid var(--border-soft);background:linear-gradient(180deg, rgba(15,23,42,.92), rgba(15,23,42,.75));padding:28px;backdrop-filter:blur(4px)}
-.content-area{flex:1;position:relative;background:linear-gradient(180deg, rgba(15,23,42,.45), transparent);overflow:hidden}
-.view-track{height:100%;display:flex;flex-direction:column;transition:transform .8s cubic-bezier(.2,.9,.2,1)}
-.section-full{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px}
-.small-muted{color:rgba(226,232,240,.8)}
+/* base */
+html,
+body,
+#root {
+  min-height: 100%;
+  background: var(--bg-main);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+}
+
+/* layout */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, .14), transparent 42%),
+    var(--bg-main);
+}
+
+.sidebar-fixed {
+  width: 280px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, rgba(15, 23, 42, .92), rgba(15, 23, 42, .75));
+  padding: 28px;
+  backdrop-filter: blur(4px);
+}
+
+.content-area {
+  flex: 1;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(15, 23, 42, .45), transparent);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* old vertical pagination compatibility */
+.view-track {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.section-full {
+  width: 100%;
+  min-height: 100vh;
+  padding: 48px;
+}
+
+.small-muted {
+  color: rgba(226, 232, 240, .8);
+}
+
+/* optional animation used in App.jsx */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn .35s ease-out both;
+}
 
 /* responsive */
-@media (max-width:900px){
-  .sidebar-fixed{position:relative;width:100%;display:flex;flex-direction:row;gap:12px;align-items:center;padding:12px}
-  .app-shell{flex-direction:column}
-  .content-area{height:calc(100vh - 96px)}
-  .view-track{flex-direction:column}
+@media (max-width: 900px) {
+  .app-shell {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .sidebar-fixed {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .content-area {
+    min-height: auto;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .section-full {
+    min-height: auto;
+    padding: 32px 16px;
+  }
 }
