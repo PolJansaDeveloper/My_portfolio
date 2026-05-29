@@ -16,7 +16,10 @@ import {
   MdAutoAwesome,
   MdDevices,
   MdRocketLaunch,
-  MdDesignServices
+  MdDesignServices,
+  MdVerified,
+  MdCode,
+  MdSpeed
 } from 'react-icons/md'
 
 import CleanIcon from '../assets/icons/clean.svg'
@@ -35,25 +38,39 @@ export default function About({ t }) {
 
   const about = t?.about || {}
 
-  const tag = about.tag || 'About me'
+  const tag = about.tag || 'Mobile Developer'
 
   const title =
-    about.title || 'Mobile Developer focused on building polished digital products'
+    about.title || 'Mobile developer building reliable apps with a product mindset'
 
   const intro =
     about.intro ||
-    'I build mobile applications with a product mindset, combining clean architecture, modern UI, performance, and a strong focus on real users.'
+    'I design and build mobile applications focused on clean architecture, polished interfaces and real product value.'
 
   const detail =
     about.detail ||
-    `I work across the mobile ecosystem, with hands-on experience building Android applications and a growing focus on iOS and cross-platform development.
-
-My goal is not only to write code, but to create apps that feel smooth, reliable, and ready for the market. I care about clean structure, maintainable features, scalable architecture, responsive interfaces, and the full product journey from idea to store release.
-
-I am especially interested in mobile products, fitness apps, productivity tools, internal business apps, and digital solutions where good UX and solid engineering can create real value.`
+    'I work across the mobile development process: planning, architecture, UI implementation, data handling, API integrations, testing and store release. My focus is building apps that are easy to use, technically solid and ready to evolve.'
 
   const skillsTitle = about.skillsTitle || 'Mobile stack & tools'
-  const workTitle = about.workTitle || 'How I work'
+  const workTitle = about.workTitle || 'What I bring to a project'
+
+  const highlights = [
+    {
+      value: about.highlights?.[0]?.value || 'Mobile',
+      label: about.highlights?.[0]?.label || 'Android, iOS and cross-platform vision',
+      icon: <MdPhoneIphone size={22} style={{ color: accentColor }} />
+    },
+    {
+      value: about.highlights?.[1]?.value || 'Product',
+      label: about.highlights?.[1]?.label || 'From idea to store-ready app',
+      icon: <MdRocketLaunch size={22} style={{ color: accentColor }} />
+    },
+    {
+      value: about.highlights?.[2]?.value || 'Quality',
+      label: about.highlights?.[2]?.label || 'Clean code, UX and performance',
+      icon: <MdVerified size={22} style={{ color: accentColor }} />
+    }
+  ]
 
   const skills = [
     { name: 'Kotlin', icon: <SiKotlin size={30} style={{ color: accentColor }} /> },
@@ -63,8 +80,28 @@ I am especially interested in mobile products, fitness apps, productivity tools,
     { name: 'Jetpack Compose', icon: <SiJetpackcompose size={30} style={{ color: accentColor }} /> },
     { name: 'Kotlin Multiplatform', icon: <MdDevices size={30} style={{ color: accentColor }} /> },
     { name: 'Firebase', icon: <SiFirebase size={30} style={{ color: accentColor }} /> },
-    { name: 'REST APIs', icon: <img src={RestApiIcon} alt="REST APIs" className="w-7 h-7" style={{ filter: iconFilter }} /> },
-    { name: 'Clean Architecture', icon: <img src={CleanIcon} alt="Clean Architecture" className="w-7 h-7" style={{ filter: iconFilter }} /> },
+    {
+      name: 'REST APIs',
+      icon: (
+        <img
+          src={RestApiIcon}
+          alt="REST APIs"
+          className="w-7 h-7"
+          style={{ filter: iconFilter }}
+        />
+      )
+    },
+    {
+      name: 'Clean Architecture',
+      icon: (
+        <img
+          src={CleanIcon}
+          alt="Clean Architecture"
+          className="w-7 h-7"
+          style={{ filter: iconFilter }}
+        />
+      )
+    },
     { name: 'MVVM', icon: <MdOutlineArchitecture size={30} style={{ color: accentColor }} /> },
     { name: 'Mobile UI/UX', icon: <MdDesignServices size={30} style={{ color: accentColor }} /> },
     { name: 'Product mindset', icon: <MdRocketLaunch size={30} style={{ color: accentColor }} /> },
@@ -77,28 +114,29 @@ I am especially interested in mobile products, fitness apps, productivity tools,
   ]
 
   const fallbackWorkStyle = [
-    'I build mobile apps with clean, scalable architecture and maintainable code.',
-    'I focus on user experience, smooth interfaces, performance, and product quality.',
-    'I can work on the full mobile development flow: features, UI, data, APIs, testing, and release.',
-    'I care about shipping real products, learning fast, and improving every iteration.'
+    'I turn ideas into structured mobile products with clear flows, solid foundations and maintainable code.',
+    'I care about the full user experience: interface, performance, reliability and small details that make an app feel professional.',
+    'I work with modern architecture, clean separation of responsibilities and practical technical decisions.',
+    'I can support the full mobile cycle: MVP definition, development, testing, publishing and post-launch improvements.'
   ]
 
-  const workStyleTexts = Array.isArray(about.workStyle) && about.workStyle.length >= 4
-    ? about.workStyle
-    : fallbackWorkStyle
+  const workStyleTexts =
+    Array.isArray(about.workStyle) && about.workStyle.length >= 4
+      ? about.workStyle
+      : fallbackWorkStyle
 
   const workStyle = [
     {
       text: workStyleTexts[0],
-      icon: <MdOutlineArchitecture size={22} style={{ color: accentColor }} />
+      icon: <MdRocketLaunch size={22} style={{ color: accentColor }} />
     },
     {
       text: workStyleTexts[1],
-      icon: <MdPhoneIphone size={22} style={{ color: accentColor }} />
+      icon: <MdSpeed size={22} style={{ color: accentColor }} />
     },
     {
       text: workStyleTexts[2],
-      icon: <MdRocketLaunch size={22} style={{ color: accentColor }} />
+      icon: <MdCode size={22} style={{ color: accentColor }} />
     },
     {
       text: workStyleTexts[3],
@@ -116,41 +154,69 @@ I am especially interested in mobile products, fitness apps, productivity tools,
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        <p
-          className="text-sm uppercase tracking-[0.25em] mb-3"
-          style={{ color: accentColor }}
-        >
-          {tag}
-        </p>
+        <div className="relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 p-6 sm:p-8 lg:p-10 shadow-2xl shadow-black/25">
+          <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-sky-400/10 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
-        <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-          {title}
-          <span style={{ color: accentColor }}>.</span>
-        </h2>
+          <div className="relative z-10">
+            <p
+              className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-sky-300"
+            >
+              <MdPhoneIphone size={18} />
+              {tag}
+            </p>
+
+            <h2 className="mt-6 max-w-5xl text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-50">
+              {title}
+              <span style={{ color: accentColor }}>.</span>
+            </h2>
+
+            <p className="mt-6 max-w-4xl text-base sm:text-lg leading-8 text-slate-300">
+              {intro}
+            </p>
+
+            <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-400">
+              {detail}
+            </p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {highlights.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-700/70 bg-slate-800/60 p-5"
+                >
+                  <div className="mb-3">
+                    {item.icon}
+                  </div>
+
+                  <p className="text-lg font-semibold text-slate-100">
+                    {item.value}
+                  </p>
+
+                  <p className="mt-1 text-sm leading-6 text-slate-400">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       <div
-        className={`transition-all duration-700 delay-100 ${
+        className={`mb-14 mt-12 transition-all duration-700 delay-200 ${
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        <p className="mb-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-4xl">
-          {intro}
-        </p>
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
+          <h3 className="text-2xl font-semibold text-slate-100">
+            {skillsTitle}
+          </h3>
 
-        <p className="mb-10 text-base sm:text-lg text-slate-400 leading-relaxed max-w-4xl whitespace-pre-line">
-          {detail}
-        </p>
-      </div>
-
-      <div
-        className={`mb-14 transition-all duration-700 delay-200 ${
-          mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
-        }`}
-      >
-        <h3 className="text-2xl font-semibold mb-5 text-slate-100">
-          {skillsTitle}
-        </h3>
+          <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-medium text-sky-300">
+            Android · iOS · Architecture · Publishing
+          </span>
+        </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
           {skills.map((skill, idx) => (
@@ -185,7 +251,7 @@ I am especially interested in mobile products, fitness apps, productivity tools,
               key={idx}
               className="flex items-start gap-3 bg-slate-800/70 p-5 rounded-2xl border border-slate-700/70 hover:border-sky-400/40 transition-all duration-300"
             >
-              <div className="mt-0.5">
+              <div className="mt-0.5 shrink-0">
                 {item.icon}
               </div>
 
