@@ -1,7 +1,7 @@
 export const translations = {
   es: {
     sidebar: {
-      role: 'Desarrollador Mobile',
+      role: 'Mobile Developer',
       nav: {
         home: 'Inicio',
         about: 'Sobre mí',
@@ -14,64 +14,71 @@ export const translations = {
     home: {
       hello: 'Hola,',
       typing: [
-        'Me apasiona la arquitectura móvil.',
-        'Soy Android Developer.',
-        'Desarrollo aplicaciones móviles con arquitectura limpia y rendimiento.'
+        'Desarrollo aplicaciones móviles para Android e iOS.',
+        'Creo productos mobile con arquitectura limpia.',
+        'Construyo apps modernas, escalables y listas para producción.'
       ],
       description:
-        'Aplicaciones móviles que conectan usuarios y negocios, con tecnología y estética profesional.'
+        'Aplicaciones móviles que conectan usuarios y negocios, con tecnología, diseño y experiencia de producto profesional.'
     },
     about: {
-      tag: 'Sobre mí',
-      title: 'Construyendo experiencias móviles modernas',
+      tag: 'Mobile Developer',
+      title: 'Construyendo productos móviles modernos',
       intro:
-        'Hola, soy Pol Jansa Sierra, desarrollador mobile enfocado en crear aplicaciones Android modernas con arquitectura limpia, rendimiento sólido y experiencias de usuario pulidas. Disfruto construir productos funcionales y visualmente refinados, combinando estructura técnica con atención al detalle.',
+        'Hola, soy Pol Jansa Sierra, desarrollador mobile enfocado en crear aplicaciones modernas, escalables y cuidadas para Android e iOS. Me gusta construir productos reales, funcionales y visualmente pulidos, combinando arquitectura limpia, rendimiento y una experiencia de usuario profesional.',
       detail:
-        'Mi stack principal está centrado en Kotlin, Jetpack Compose, Firebase y desarrollo Android nativo, con gran interés en patrones de arquitectura escalables como MVVM y Clean Architecture. Vengo de un recorrido marcado por la disciplina, la adaptabilidad y el crecimiento constante, y llevo esa misma mentalidad al desarrollo de software: construir con intención, aprender rápido y buscar siempre mejores soluciones.\n\nMe interesan especialmente los productos móviles con UX sólida, bases robustas e impacto real. Mi objetivo es crear apps profesionales tanto en la parte de ingeniería como de producto.',
-      skillsTitle: 'Competencias principales',
+        'Trabajo con tecnologías mobile como Kotlin, Jetpack Compose, Firebase, integración de APIs, arquitectura MVVM y Clean Architecture, y sigo ampliando mi stack hacia iOS y soluciones multiplataforma. Mi enfoque no se limita solo a escribir código: también me importa que la app tenga sentido como producto, sea fácil de usar, se vea profesional y pueda crecer con una base técnica sólida.\n\nHe publicado productos reales en Google Play y me interesa seguir creando aplicaciones móviles con impacto real, tanto para empresas como para proyectos propios. Mi objetivo es aportar valor en todo el proceso: planificación, desarrollo, UI/UX, testing, publicación y mejora continua.',
+      skillsTitle: 'Stack de desarrollo mobile',
       workTitle: 'Cómo trabajo',
       workStyle: [
-        'Desarrollo mobile limpio, escalable y mantenible',
-        'Fuerte enfoque en arquitectura Android y calidad de código',
-        'Interfaces cuidadas con atención al detalle y experiencia de usuario',
-        'Mentalidad resolutiva, mejora continua y colaboración profesional'
+        'Desarrollo aplicaciones móviles con enfoque de producto, cuidando tanto la parte técnica como la experiencia final del usuario.',
+        'Construyo bases limpias, escalables y mantenibles usando arquitectura moderna, separación de responsabilidades y buenas prácticas.',
+        'Diseño e implemento interfaces mobile modernas, fluidas y profesionales, con atención al detalle y a la usabilidad.',
+        'Puedo aportar en todo el proceso mobile: definición del MVP, desarrollo, testing, publicación en tiendas y mejoras posteriores.'
       ]
     },
-services: {
-  tag: "Lo que ofrezco",
-  title: "Servicios",
-  subtitle: "Desarrollo aplicaciones Android a medida, desde la idea hasta la publicación en Play Store.",
-  items: [
-    {
-      title: "Desarrollo de apps Android",
-      description: "Creo aplicaciones nativas desde cero con Kotlin y Jetpack Compose, optimizadas para rendimiento y buena experiencia de usuario."
+    services: {
+      tag: 'Lo que ofrezco',
+      title: 'Servicios mobile',
+      subtitle:
+        'Ayudo a empresas, startups y emprendedores a crear, mejorar y lanzar aplicaciones móviles para Android e iOS, desde la idea inicial hasta una versión lista para usuarios reales.',
+      items: [
+        {
+          title: 'Desarrollo de apps mobile',
+          description:
+            'Desarrollo aplicaciones móviles modernas para Android e iOS, enfocadas en rendimiento, usabilidad, arquitectura limpia y experiencia de usuario profesional.'
+        },
+        {
+          title: 'Publicación en Google Play y App Store',
+          description:
+            'Apoyo en el proceso de lanzamiento: preparación de builds, configuración, fichas de tienda, pruebas, releases y revisión de requisitos para publicar correctamente.'
+        },
+        {
+          title: 'Integración de APIs y servicios',
+          description:
+            'Conecto aplicaciones con APIs REST, Firebase, autenticación, bases de datos, servicios cloud y plataformas externas para trabajar con datos reales.'
+        },
+        {
+          title: 'Mantenimiento y mejora de apps',
+          description:
+            'Corrijo errores, refactorizo código, mejoro rendimiento, actualizo dependencias y añado nuevas funcionalidades a aplicaciones ya existentes.'
+        },
+        {
+          title: 'UI/UX para aplicaciones móviles',
+          description:
+            'Diseño e implemento interfaces limpias, modernas y adaptadas a distintos dispositivos, buscando que la app se sienta profesional y fácil de usar.'
+        },
+        {
+          title: 'Consultoría mobile',
+          description:
+            'Ayudo a definir el enfoque técnico de una app: arquitectura, tecnología adecuada, estructura del proyecto, MVP, funcionalidades y pasos para lanzar.'
+        }
+      ]
     },
-    {
-      title: "Publicación en Play Store",
-      description: "Me encargo de todo el proceso de lanzamiento: configuración, firma, optimización del listing y gestión de releases."
-    },
-    {
-      title: "Integración de APIs",
-      description: "Conecto tu app con backends externos, servicios REST y Firebase para que tus datos estén siempre sincronizados."
-    },
-    {
-      title: "Mejora de apps existentes",
-      description: "Refactorizo, corrijo bugs y mejoro el rendimiento de aplicaciones Android que ya están en producción."
-    },
-    {
-      title: "UI/UX Mobile",
-      description: "Diseño e implemento interfaces modernas siguiendo las guías de Material Design, adaptadas a distintos tamaños de pantalla."
-    },
-    {
-      title: "Consultoría Android",
-      description: "Te ayudo a tomar decisiones técnicas: arquitectura, stack tecnológico, o revisión de código de tu equipo."
-    }
-  ]
-},
     projects: {
       title: 'Proyectos',
       subtitle:
-        'Una selección de productos Android y proyectos móviles que he construido o estoy desarrollando actualmente.',
+        'Una selección de productos mobile y aplicaciones reales que he construido, publicado o desarrollado como proyectos privados.',
       categories: {
         all: 'Todos',
         android: 'Android',
@@ -94,11 +101,11 @@ services: {
       empty: 'No hay proyectos en esta categoría todavía.',
       items: {
         quickEscapeDesc:
-          'App Android que genera excusas ingeniosas para cancelar planes en modo serio o absurdo. Construida con Kotlin y Jetpack Compose, enfocada en UI limpia, engagement y publicación en Play Store.',
+          'Aplicación móvil publicada en Google Play que genera excusas ingeniosas para cancelar planes en modo serio o absurdo. Construida con Kotlin y Jetpack Compose, con foco en UI limpia, engagement y experiencia de usuario.',
         trainFlowDesc:
-          'App de seguimiento de entrenamientos enfocada en planificación, ejecución de sesiones e historial. Construida con Kotlin, Jetpack Compose y arquitectura escalable con fuerte foco en UI premium y experiencia de usuario.',
+          'Aplicación móvil publicada en Google Play para planificar entrenamientos, ejecutar sesiones tipo Tabata/HIIT y consultar historial. Construida con Kotlin, Jetpack Compose y arquitectura escalable, con especial atención a una UI premium y una experiencia fluida.',
         mediterraneanMarketDesc:
-          'Proyecto Android desarrollado como aplicación privada real. El código fuente no es público porque contiene configuración privada y recursos no compartibles.',
+          'Proyecto mobile desarrollado como aplicación privada real. El código fuente no es público porque contiene configuración privada y recursos no compartibles.',
         mmDesc:
           'Plataforma que conecta productores internacionales de alimentos premium con compradores europeos, especializada en cacao y ventas al por mayor.',
         hlDesc: 'App para seguimiento de hábitos y vida saludable.'
@@ -106,7 +113,7 @@ services: {
     },
     contact: {
       title: 'Contacto',
-      subtitle: '¿Tienes un proyecto o quieres colaborar? Escríbeme y lo hablamos.',
+      subtitle: '¿Tienes un proyecto mobile o quieres colaborar? Escríbeme y lo hablamos.',
       cardTitle: 'Envíame un mensaje',
       cardText: 'Cuéntame tu idea y te responderé lo antes posible con una propuesta clara.',
       labels: {
@@ -131,6 +138,7 @@ services: {
       honeypot: 'No rellenes este campo:'
     }
   },
+
   en: {
     sidebar: {
       role: 'Mobile Developer',
@@ -146,64 +154,71 @@ services: {
     home: {
       hello: 'Hello,',
       typing: [
-        'I am passionate about mobile architecture.',
-        'I am an Android Developer.',
-        'I build mobile apps with clean architecture and performance.'
+        'I build mobile apps for Android and iOS.',
+        'I create mobile products with clean architecture.',
+        'I develop modern, scalable and production-ready apps.'
       ],
       description:
-        'Mobile applications that connect users and businesses with professional technology and design.'
+        'Mobile applications that connect users and businesses through professional technology, design and product experience.'
     },
     about: {
-      tag: 'About me',
-      title: 'Building modern mobile experiences',
+      tag: 'Mobile Developer',
+      title: 'Building modern mobile products',
       intro:
-        'Hi, I’m Pol Jansa Sierra, a mobile developer focused on creating modern Android applications with clean architecture, solid performance and polished user experiences. I enjoy building products that are both functional and visually refined, combining technical structure with attention to detail.',
+        'Hi, I’m Pol Jansa Sierra, a mobile developer focused on creating modern, scalable and polished applications for Android and iOS. I enjoy building real products that are functional, visually refined and designed with clean architecture, performance and user experience in mind.',
       detail:
-        'My main stack is centered around Kotlin, Jetpack Compose, Firebase and Android native development, with a strong interest in scalable architecture patterns such as MVVM and Clean Architecture. I come from a background shaped by discipline, adaptability and constant growth, and I bring that same mindset into software development: building with intention, learning fast and always looking for better solutions.\n\nI’m especially interested in mobile products with strong UX, robust foundations and real-world impact. My goal is to create apps that feel professional from both the engineering and product side.',
-      skillsTitle: 'Core skills',
+        'I work with mobile technologies such as Kotlin, Jetpack Compose, Firebase, API integration, MVVM and Clean Architecture, while expanding my stack towards iOS and cross-platform solutions. My focus is not only writing code: I care about building apps that make sense as products, are easy to use, look professional and can grow on top of a solid technical foundation.\n\nI have published real products on Google Play and I am focused on building mobile applications with real-world impact, both for companies and personal products. My goal is to contribute across the full mobile process: planning, development, UI/UX, testing, store publishing and continuous improvement.',
+      skillsTitle: 'Mobile development stack',
       workTitle: 'How I work',
       workStyle: [
-        'Clean, scalable and maintainable mobile development',
-        'Strong focus on Android architecture and code quality',
-        'Carefully crafted UI with attention to detail and user experience',
-        'Problem-solving mindset, continuous improvement and professional collaboration'
+        'I build mobile applications with a product mindset, caring about both the technical side and the final user experience.',
+        'I create clean, scalable and maintainable foundations using modern architecture, separation of concerns and good practices.',
+        'I design and implement modern, smooth and professional mobile interfaces with attention to detail and usability.',
+        'I can contribute across the full mobile process: MVP definition, development, testing, store publishing and post-launch improvements.'
       ]
     },
-services: {
-  tag: "What I offer",
-  title: "Services",
-  subtitle: "I build custom Android apps, from idea to Play Store launch.",
-  items: [
-    {
-      title: "Android App Development",
-      description: "I build native Android apps from scratch using Kotlin and Jetpack Compose, focused on performance and great user experience."
+    services: {
+      tag: 'What I offer',
+      title: 'Mobile services',
+      subtitle:
+        'I help businesses, startups and founders create, improve and launch mobile applications for Android and iOS, from the first idea to a version ready for real users.',
+      items: [
+        {
+          title: 'Mobile app development',
+          description:
+            'I develop modern mobile applications for Android and iOS, focused on performance, usability, clean architecture and professional user experience.'
+        },
+        {
+          title: 'Google Play & App Store publishing',
+          description:
+            'I support the release process: build preparation, setup, store listings, testing, releases and requirements review for a correct launch.'
+        },
+        {
+          title: 'API and service integration',
+          description:
+            'I connect apps with REST APIs, Firebase, authentication, databases, cloud services and external platforms to work with real data.'
+        },
+        {
+          title: 'App maintenance and improvement',
+          description:
+            'I fix bugs, refactor code, improve performance, update dependencies and add new features to existing mobile applications.'
+        },
+        {
+          title: 'Mobile UI/UX',
+          description:
+            'I design and implement clean, modern interfaces adapted to different devices, making the app feel professional and easy to use.'
+        },
+        {
+          title: 'Mobile consulting',
+          description:
+            'I help define the technical approach of an app: architecture, right technology, project structure, MVP, features and launch steps.'
+        }
+      ]
     },
-    {
-      title: "Play Store Publishing",
-      description: "I handle the full release process: setup, signing, listing optimization, and release management."
-    },
-    {
-      title: "API Integration",
-      description: "I connect your app to backends, REST services, and Firebase so your data stays in sync across platforms."
-    },
-    {
-      title: "App Improvement",
-      description: "I refactor, fix bugs, and boost performance of existing Android apps already running in production."
-    },
-    {
-      title: "Mobile UI/UX",
-      description: "I design and implement modern interfaces following Material Design guidelines, adapted for all screen sizes."
-    },
-    {
-      title: "Android Consulting",
-      description: "I help you make smart technical decisions around architecture, tech stack, or code review for your team."
-    }
-  ]
-},
     projects: {
       title: 'Projects',
       subtitle:
-        'A selection of Android products and mobile projects I have built or I am currently developing.',
+        'A selection of mobile products and real applications I have built, published or developed as private projects.',
       categories: {
         all: 'All',
         android: 'Android',
@@ -226,11 +241,11 @@ services: {
       empty: 'There are no projects in this category yet.',
       items: {
         quickEscapeDesc:
-          'Android app that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, user engagement, and Play Store distribution.',
+          'Mobile app published on Google Play that generates clever excuses to cancel plans in serious or absurd mode. Built with Kotlin and Jetpack Compose, focused on clean UI, engagement and user experience.',
         trainFlowDesc:
-          'Workout tracking app focused on planning, session execution, and training history. Built with Kotlin, Jetpack Compose, and a scalable architecture with a strong focus on premium UI and user experience.',
+          'Mobile app published on Google Play for planning workouts, running Tabata/HIIT sessions and reviewing training history. Built with Kotlin, Jetpack Compose and scalable architecture, with a strong focus on premium UI and a smooth user experience.',
         mediterraneanMarketDesc:
-          'Android project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.',
+          'Mobile project developed as a real private application. The source code is not public because it contains private configuration and non-shareable resources.',
         mmDesc:
           'Platform connecting international premium food producers with European buyers, specialized in cocoa and wholesale sales.',
         hlDesc: 'App for healthy habit and lifestyle tracking.'
@@ -238,7 +253,7 @@ services: {
     },
     contact: {
       title: 'Contact',
-      subtitle: 'Do you have a project or want to collaborate? Message me and let’s talk.',
+      subtitle: 'Do you have a mobile project or want to collaborate? Message me and let’s talk.',
       cardTitle: 'Send me a message',
       cardText: 'Tell me about your idea and I will reply as soon as possible with a clear proposal.',
       labels: {
