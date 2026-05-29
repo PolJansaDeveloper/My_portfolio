@@ -22,17 +22,19 @@ const initialProjects = [
     img: QuickEscapeImg,
     descriptionKey: 'quickEscapeDesc',
     links: {
-      playStore: '#'
+      playStore: 'https://play.google.com/store/apps/details?id=com.pjdev.quickescape&pcampaignid=web_share'
     }
   },
   {
     id: 2,
     title: 'TrainFlow',
     platform: 'android',
-    status: 'in-development',
+    status: 'published',
     img: TrainFlowImg,
     descriptionKey: 'trainFlowDesc',
-    links: {}
+    links: {
+      playStore: 'https://play.google.com/store/apps/details?id=com.pjdev.trainflow&pcampaignid=web_share'
+    }
   },
   {
     id: 3,
