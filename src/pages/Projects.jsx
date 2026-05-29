@@ -30,7 +30,7 @@ const initialProjects = [
     title: 'TrainFlow',
     platform: 'android',
     status: 'published',
-    img: TrainFlowImg,
+    img: trainflow_icon_from_vector,
     descriptionKey: 'trainFlowDesc',
     links: {
       playStore: 'https://play.google.com/store/apps/details?id=com.pjdev.trainflow&pcampaignid=web_share'
