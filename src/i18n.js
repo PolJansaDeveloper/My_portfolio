@@ -23,18 +23,32 @@ export const translations = {
     },
     about: {
       tag: 'Mobile Developer',
-      title: 'Construyendo productos móviles modernos',
+      title: 'Desarrollo aplicaciones móviles pensadas para producto, rendimiento y crecimiento',
       intro:
-        'Hola, soy Pol Jansa Sierra, desarrollador mobile enfocado en crear aplicaciones modernas, escalables y cuidadas para Android e iOS. Me gusta construir productos reales, funcionales y visualmente pulidos, combinando arquitectura limpia, rendimiento y una experiencia de usuario profesional.',
+        'Soy Pol Jansa Sierra, desarrollador mobile enfocado en crear aplicaciones modernas para Android e iOS, con una base técnica sólida y una experiencia de usuario cuidada. Mi objetivo es construir productos móviles que no solo funcionen bien, sino que transmitan calidad desde el primer uso.',
       detail:
-        'Trabajo con tecnologías mobile como Kotlin, Jetpack Compose, Firebase, integración de APIs, arquitectura MVVM y Clean Architecture, y sigo ampliando mi stack hacia iOS y soluciones multiplataforma. Mi enfoque no se limita solo a escribir código: también me importa que la app tenga sentido como producto, sea fácil de usar, se vea profesional y pueda crecer con una base técnica sólida.\n\nHe publicado productos reales en Google Play y me interesa seguir creando aplicaciones móviles con impacto real, tanto para empresas como para proyectos propios. Mi objetivo es aportar valor en todo el proceso: planificación, desarrollo, UI/UX, testing, publicación y mejora continua.',
-      skillsTitle: 'Stack de desarrollo mobile',
-      workTitle: 'Cómo trabajo',
+        'Trabajo el desarrollo mobile de forma completa: estructura del proyecto, arquitectura, interfaz, gestión de datos, integración con APIs, pruebas, publicación y mejora continua. Me interesa especialmente crear apps claras, fluidas y mantenibles, capaces de evolucionar con nuevas funcionalidades sin perder estabilidad ni calidad.',
+      highlights: [
+        {
+          value: 'Mobile',
+          label: 'Desarrollo orientado a Android, iOS y soluciones multiplataforma'
+        },
+        {
+          value: 'Producto',
+          label: 'Visión completa desde la idea inicial hasta una app lista para usuarios reales'
+        },
+        {
+          value: 'Calidad',
+          label: 'Arquitectura limpia, experiencia cuidada, rendimiento y mantenibilidad'
+        }
+      ],
+      skillsTitle: 'Stack y herramientas mobile',
+      workTitle: 'Qué aporto a un proyecto',
       workStyle: [
-        'Desarrollo aplicaciones móviles con enfoque de producto, cuidando tanto la parte técnica como la experiencia final del usuario.',
-        'Construyo bases limpias, escalables y mantenibles usando arquitectura moderna, separación de responsabilidades y buenas prácticas.',
-        'Diseño e implemento interfaces mobile modernas, fluidas y profesionales, con atención al detalle y a la usabilidad.',
-        'Puedo aportar en todo el proceso mobile: definición del MVP, desarrollo, testing, publicación en tiendas y mejoras posteriores.'
+        'Transformo ideas en productos móviles estructurados, con flujos claros, buena base técnica y código mantenible.',
+        'Cuido la experiencia completa del usuario: interfaz, rendimiento, estabilidad y detalles que hacen que una app se sienta profesional.',
+        'Trabajo con arquitectura moderna, separación de responsabilidades y decisiones técnicas pensadas para escalar.',
+        'Puedo aportar en todo el ciclo mobile: definición del MVP, desarrollo, testing, publicación en tiendas y mejoras posteriores.'
       ]
     },
     services: {
@@ -163,18 +177,32 @@ export const translations = {
     },
     about: {
       tag: 'Mobile Developer',
-      title: 'Building modern mobile products',
+      title: 'Building mobile applications designed for product quality, performance and growth',
       intro:
-        'Hi, I’m Pol Jansa Sierra, a mobile developer focused on creating modern, scalable and polished applications for Android and iOS. I enjoy building real products that are functional, visually refined and designed with clean architecture, performance and user experience in mind.',
+        'I’m Pol Jansa Sierra, a mobile developer focused on creating modern applications for Android and iOS with a solid technical foundation and a polished user experience. My goal is to build mobile products that do not just work well, but feel reliable, professional and ready for real users.',
       detail:
-        'I work with mobile technologies such as Kotlin, Jetpack Compose, Firebase, API integration, MVVM and Clean Architecture, while expanding my stack towards iOS and cross-platform solutions. My focus is not only writing code: I care about building apps that make sense as products, are easy to use, look professional and can grow on top of a solid technical foundation.\n\nI have published real products on Google Play and I am focused on building mobile applications with real-world impact, both for companies and personal products. My goal is to contribute across the full mobile process: planning, development, UI/UX, testing, store publishing and continuous improvement.',
-      skillsTitle: 'Mobile development stack',
-      workTitle: 'How I work',
+        'I approach mobile development as a complete process: project structure, architecture, interface implementation, data handling, API integration, testing, store publishing and continuous improvement. I am especially interested in building clear, smooth and maintainable apps that can evolve with new features without losing stability or quality.',
+      highlights: [
+        {
+          value: 'Mobile',
+          label: 'Development focused on Android, iOS and cross-platform solutions'
+        },
+        {
+          value: 'Product',
+          label: 'Full vision from the initial idea to an app ready for real users'
+        },
+        {
+          value: 'Quality',
+          label: 'Clean architecture, polished experience, performance and maintainability'
+        }
+      ],
+      skillsTitle: 'Mobile stack & tools',
+      workTitle: 'What I bring to a project',
       workStyle: [
-        'I build mobile applications with a product mindset, caring about both the technical side and the final user experience.',
-        'I create clean, scalable and maintainable foundations using modern architecture, separation of concerns and good practices.',
-        'I design and implement modern, smooth and professional mobile interfaces with attention to detail and usability.',
-        'I can contribute across the full mobile process: MVP definition, development, testing, store publishing and post-launch improvements.'
+        'I turn ideas into structured mobile products with clear flows, solid foundations and maintainable code.',
+        'I care about the full user experience: interface, performance, reliability and small details that make an app feel professional.',
+        'I work with modern architecture, clean separation of responsibilities and practical technical decisions designed to scale.',
+        'I can support the full mobile cycle: MVP definition, development, testing, store publishing and post-launch improvements.'
       ]
     },
     services: {
