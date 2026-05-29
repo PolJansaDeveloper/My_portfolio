@@ -39,14 +39,11 @@ export default function About({ t }) {
   const about = t?.about || {}
 
   const tag = about.tag || 'Mobile Developer'
-
   const title =
     about.title || 'Mobile developer building reliable apps with a product mindset'
-
   const intro =
     about.intro ||
     'I design and build mobile applications focused on clean architecture, polished interfaces and real product value.'
-
   const detail =
     about.detail ||
     'I work across the mobile development process: planning, architecture, UI implementation, data handling, API integrations, testing and store release. My focus is building apps that are easy to use, technically solid and ready to evolve.'
@@ -145,10 +142,7 @@ export default function About({ t }) {
   ]
 
   return (
-    <section
-      className="max-w-6xl mx-auto py-14 px-4 sm:px-6 text-slate-100 overflow-y-auto"
-      style={{ maxHeight: 'calc(100vh - 2rem)' }}
-    >
+    <section className="max-w-6xl mx-auto w-full py-14 px-4 sm:px-6 text-slate-100">
       <div
         className={`transition-all duration-700 ${
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
@@ -159,9 +153,7 @@ export default function About({ t }) {
           <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
           <div className="relative z-10">
-            <p
-              className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-sky-300"
-            >
+            <p className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">
               <MdPhoneIphone size={18} />
               {tag}
             </p>
@@ -185,9 +177,7 @@ export default function About({ t }) {
                   key={idx}
                   className="rounded-2xl border border-slate-700/70 bg-slate-800/60 p-5"
                 >
-                  <div className="mb-3">
-                    {item.icon}
-                  </div>
+                  <div className="mb-3">{item.icon}</div>
 
                   <p className="text-lg font-semibold text-slate-100">
                     {item.value}
