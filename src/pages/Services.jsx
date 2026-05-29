@@ -18,56 +18,76 @@ export default function Services({ t }) {
     setMounted(true)
   }, [])
 
-  const services = [
-    {
-      title: 'Mobile App Development',
-      description:
-        'Development of modern mobile applications for Android and iOS, focused on performance, usability and clean architecture.',
-      icon: faMobileAlt
-    },
-    {
-      title: 'App Store & Google Play Publishing',
-      description:
-        'Preparation and publication of mobile apps on Google Play and the App Store, including store listing, builds, testing tracks and release support.',
-      icon: faUpload
-    },
-    {
-      title: 'API & Backend Integration',
-      description:
-        'Integration with REST APIs, Firebase, authentication systems, cloud services and external platforms to connect your app with real data.',
-      icon: faPlug
-    },
-    {
-      title: 'Maintenance & Improvements',
-      description:
-        'Bug fixing, performance improvements, dependency updates, compatibility reviews and new feature development for existing apps.',
-      icon: faWrench
-    },
-    {
-      title: 'Mobile UI/UX Design',
-      description:
-        'Design and implementation of clean, polished and responsive mobile interfaces that feel professional and easy to use.',
-      icon: faPaintBrush
-    },
-    {
-      title: 'Cross-platform Mobile Solutions',
-      description:
-        'Mobile solutions with a practical approach, choosing the right technology for each project: native Android, iOS or cross-platform when it makes sense.',
-      icon: faLayerGroup
-    },
-    {
-      title: 'Product Launch Support',
-      description:
-        'Support from idea to launch: feature planning, MVP definition, technical decisions, testing, release preparation and post-launch improvements.',
-      icon: faRocket
-    },
-    {
-      title: 'Technical Consultation',
-      description:
-        'Guidance for businesses or founders who need help understanding what their mobile app needs, how to build it and how to launch it properly.',
-      icon: faComments
-    }
+  const fallbackServices = {
+    tag: 'Mobile Services',
+    title: 'Mobile solutions for real products',
+    subtitle:
+      'I help businesses, startups and founders build, improve and launch mobile applications across Android and iOS, with a strong focus on clean development, polished interfaces and real user experience.',
+    items: [
+      {
+        title: 'Mobile App Development',
+        description:
+          'Development of modern mobile applications for Android and iOS, focused on performance, usability and clean architecture.'
+      },
+      {
+        title: 'App Store & Google Play Publishing',
+        description:
+          'Preparation and publication of mobile apps on Google Play and the App Store, including store listing, builds, testing tracks and release support.'
+      },
+      {
+        title: 'API & Backend Integration',
+        description:
+          'Integration with REST APIs, Firebase, authentication systems, cloud services and external platforms to connect your app with real data.'
+      },
+      {
+        title: 'Maintenance & Improvements',
+        description:
+          'Bug fixing, performance improvements, dependency updates, compatibility reviews and new feature development for existing apps.'
+      },
+      {
+        title: 'Mobile UI/UX Design',
+        description:
+          'Design and implementation of clean, polished and responsive mobile interfaces that feel professional and easy to use.'
+      },
+      {
+        title: 'Cross-platform Mobile Solutions',
+        description:
+          'Mobile solutions with a practical approach, choosing the right technology for each project: native Android, iOS or cross-platform when it makes sense.'
+      },
+      {
+        title: 'Product Launch Support',
+        description:
+          'Support from idea to launch: feature planning, MVP definition, technical decisions, testing, release preparation and post-launch improvements.'
+      },
+      {
+        title: 'Technical Consultation',
+        description:
+          'Guidance for businesses or founders who need help understanding what their mobile app needs, how to build it and how to launch it properly.'
+      }
+    ]
+  }
+
+  const serviceIcons = [
+    faMobileAlt,
+    faUpload,
+    faPlug,
+    faWrench,
+    faPaintBrush,
+    faLayerGroup,
+    faRocket,
+    faComments
   ]
+
+  const servicesContent = t?.services || fallbackServices
+  const serviceItems =
+    Array.isArray(servicesContent.items) && servicesContent.items.length > 0
+      ? servicesContent.items
+      : fallbackServices.items
+
+  const services = serviceItems.map((service, idx) => ({
+    ...service,
+    icon: serviceIcons[idx] || faMobileAlt
+  }))
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center text-slate-100 px-4 py-14">
@@ -76,7 +96,7 @@ export default function Services({ t }) {
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        Mobile Services
+        {servicesContent.tag || fallbackServices.tag}
       </p>
 
       <h2
@@ -84,7 +104,7 @@ export default function Services({ t }) {
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'
         }`}
       >
-        Mobile solutions for real products
+        {servicesContent.title || fallbackServices.title}
         <span className="text-sky-400">.</span>
       </h2>
 
@@ -93,13 +113,13 @@ export default function Services({ t }) {
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
         }`}
       >
-        I help businesses, startups and founders build, improve and launch mobile applications across Android and iOS, with a strong focus on clean development, polished interfaces and real user experience.
+        {servicesContent.subtitle || fallbackServices.subtitle}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-6xl">
         {services.map((service, idx) => (
           <div
-            key={idx}
+            key={`${service.title}-${idx}`}
             className={`group flex flex-col items-start p-6 bg-slate-800/70 rounded-2xl border border-slate-700/70 hover:border-sky-400/50 hover:bg-slate-800 transition-all duration-300 hover:-translate-y-1 ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
