@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MM from '../assets/MM.png'
 import QuickEscapeImg from '../assets/quickescape.png'
-import TrainFlowImg from '../assets/trainglow.png'
+import TrainFlowImg from '../assets/trainflow_icon_from_vector.png'
 
 
 const fallbackDescriptions = {
@@ -30,7 +30,7 @@ const initialProjects = [
     title: 'TrainFlow',
     platform: 'android',
     status: 'published',
-    img: trainflow_icon_from_vector,
+    img: TrainFlowImg,
     descriptionKey: 'trainFlowDesc',
     links: {
       playStore: 'https://play.google.com/store/apps/details?id=com.pjdev.trainflow&pcampaignid=web_share'
