@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons'
-import perfil from '../assets/perfil.png'
+import perfil from '../assets/perfilbo.png'
 
 const Sidebar = ({ active, setActive, lang, setLang, t }) => {
   const items = [
